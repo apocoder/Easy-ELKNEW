@@ -131,8 +131,8 @@ configure_elasticsearch() {
 #Install and Configure Kibana with NGINX
 install_kibana() {
     printf "\033[32m ---- Installing kibana ---- \033[0m\n"
-    #get eth IP
-    IP=$(ip addr show |grep "inet " |grep -v 127.0.0. |head -1|cut -d" " -f6|cut -d/ -f1)
+    #get eth 
+    IP=$(hostname -I | awk '{print $1}')
     #install package
     apt-get install -y kibana
     printf "\033[32m  ---- Setting up public signing key ----\033[0m\n"
