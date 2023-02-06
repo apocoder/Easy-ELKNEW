@@ -130,7 +130,6 @@ configure_elasticsearch() {
 
 #Install and Configure Kibana with NGINX
 install_kibana() {
-    clear
     printf "\033[32m ---- Installing kibana ---- \033[0m\n"
     #get eth IP
     IP=$(ip addr show |grep "inet " |grep -v 127.0.0. |head -1|cut -d" " -f6|cut -d/ -f1)
@@ -216,7 +215,6 @@ install_logstash() {
 }
 
 test_elasticsearch_port(){
-clear
     echo -n "Testing if Elasticsearch is Ruuning on port 9200 \n"
     echo    "---------------------------------------------------"   
 PORT=9200
