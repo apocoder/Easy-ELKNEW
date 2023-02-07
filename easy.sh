@@ -231,8 +231,8 @@ fi
 #update_system_packages
 #check_nginx
 #check_java
-#install_elasticsearch
-#configure_elasticsearch 
+install_elasticsearch
+configure_elasticsearch 
 install_kibana
 #configure_kibana_auth
 install_logstash
