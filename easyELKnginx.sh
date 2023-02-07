@@ -208,10 +208,6 @@ install_logstash() {
     systemctl daemon-reload
     systemctl start logstash.service
     systemctl enable logstash.service
-    #install geolocation data for maps
-    cd /etc/logstash || exit
-    curl -O "https://web.archive.org/web/20191227182209/https://geolite.maxmind.com/download/geoip/database/GeoLite2-City.tar.gz"
-    gunzip GeoLite2-City.mmdb.gz
 }
 
 test_elasticsearch_port(){
