@@ -132,16 +132,16 @@ configure_elasticsearch() {
 install_kibana() {
     printf "\033[32m ---- Installing kibana ---- \033[0m\n"
     #get eth 
-    IP=$(hostname -I | awk '{print $1}')
+    IP=172.21.1.122
     #install package
     apt-get install -y kibana
     printf "\033[32m  ---- Setting up public signing key ----\033[0m\n"
     cd /etc/kibana || exit
-    #server.port: 5601
+    server.port: 5601
     sed -i "/server.port:/s/^#//g" /etc/kibana/kibana.yml
     #The default is 'localhost', which usually means remote machines will not be able to connect.
     #server.host: "localhost"
-    sed -i "/server.host/aserver.host: ${IP}"  /etc/kibana/kibana.yml
+    sed -i "/server.host/server.host: ${IP}"  /etc/kibana/kibana.yml
     #Elastic url
     sed -i '/elasticsearch.url:/s/^#//g' /etc/kibana/kibana.yml
     #locale
@@ -234,6 +234,6 @@ fi
 #install_elasticsearch
 #configure_elasticsearch 
 install_kibana
-configure_kibana_auth
+#configure_kibana_auth
 install_logstash
 test_elasticsearch_port
